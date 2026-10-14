@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1020"><meta name="description" content="Kryvora Answer Desk — دستیار بررسی سؤال‌های آزمون Kryvora">
+<title>Kryvora Answer Desk</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1020;--panel:#121b2d;--line:#29374d;--muted:#94a6bf;--mint:#6ee7c8;--white:#f4f7fc}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 85% 0%,#173047 0,transparent 36%),var(--bg);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--white);min-height:100vh}
+main{max-width:880px;margin:auto;padding:26px 18px 60px}.top{display:flex;align-items:center;gap:13px;margin-bottom:36px}.logo{width:52px;height:52px;border-radius:16px;background:#172b3a;border:1px solid #315366;display:grid;place-items:center;color:var(--mint);font-size:28px}.brand{font-weight:800;letter-spacing:2px}.sub{font-size:11px;color:var(--muted);letter-spacing:1.4px;margin-top:3px}.pill{margin-right:auto;border:1px solid #395067;border-radius:999px;padding:6px 10px;font-size:12px;color:#b6c8db}
+.hero{margin-bottom:24px}.eyebrow{color:var(--mint);font-size:13px;font-weight:700}.hero h1{font-size:clamp(30px,6vw,48px);line-height:1.2;margin:10px 0}.hero p{color:#adbbcf;line-height:1.9;margin:0;max-width:650px}
+.card{background:rgba(18,27,45,.94);border:1px solid var(--line);border-radius:22px;padding:clamp(17px,4vw,28px);box-shadow:0 20px 60px #0002}.field{margin:0 0 18px}label{display:block;font-weight:650;margin-bottom:9px}textarea{width:100%;resize:vertical;min-height:120px;background:#0c1424;border:1px solid #35455c;border-radius:13px;color:var(--white);padding:14px;font:inherit;line-height:1.7;outline:none}textarea:focus{border-color:var(--mint);box-shadow:0 0 0 3px #6ee7c81c}.options{min-height:115px}.choices{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 20px;color:#bdc9d9;font-size:14px}.choices label{font-weight:400;display:flex;align-items:center;gap:8px;margin:0}.choices input{accent-color:var(--mint)}
+button,.linkbtn{font:inherit;border:0;border-radius:12px;padding:13px 17px;cursor:pointer;font-weight:750;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px}.primary{background:var(--mint);color:#092019;width:100%}.secondary{background:#1b2a3f;color:#e5edf8;border:1px solid #344961}.actions{display:flex;gap:10px;flex-wrap:wrap}.result{display:none;margin-top:18px;padding:16px;border:1px solid #3b5367;border-radius:14px;background:#142338;line-height:1.8}.result.show{display:block}.result strong{color:var(--mint)}.resources{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:18px}.resource{border:1px solid var(--line);border-radius:15px;padding:15px;color:var(--white);text-decoration:none;background:#10192a}.resource:hover{border-color:#6ee7c8}.resource small{display:block;color:var(--muted);margin-top:5px}.notice{font-size:13px;color:#9aabc1;line-height:1.8;margin:18px 0 0}.foot{margin-top:26px;color:#73869f;font-size:12px;text-align:center}
+@media(max-width:520px){main{padding:20px 13px 40px}.pill{font-size:10px}.top{margin-bottom:28px}.actions>*{flex:1}}
+</style></head>
+<body><main>
+<header class="top"><div class="logo">✳</div><div><div class="brand">KRYVORA</div><div class="sub">ANSWER DESK · QUIZ ASSISTANT</div></div><span class="pill">نسخهٔ اولیه</span></header>
+<section class="hero"><div class="eyebrow">ساده، سریع، مستند</div><h1>جواب رو با منبع پیدا کن.</h1><p>متن سؤال و گزینه‌ها رو وارد کن. این نسخه ابزار جست‌وجوی منابع رسمی رو در اختیارت می‌گذاره؛ برای جلوگیری از جواب‌های ساختگی، شمارهٔ گزینه بدون بررسی منبع حدس زده نمی‌شه.</p></section>
+<section class="card">
+<div class="field"><label for="question">۱. متن سؤال</label><textarea id="question" placeholder="سؤال Kryvora رو اینجا Paste کن…"></textarea></div>
+<div class="field"><label for="options">۲. گزینه‌های پاسخ (اختیاری)</label><textarea id="options" class="options" placeholder="1. گزینه اول&#10;2. گزینه دوم&#10;3. گزینه سوم&#10;4. گزینه چهارم"></textarea></div>
+<div class="choices"><label><input type="radio" name="scope" value="official" checked> اول منابع رسمی Kryvora</label><label><input type="radio" name="scope" value="web"> جست‌وجوی گسترده‌تر وب</label></div>
+<button class="primary" id="search">⌕　ساختن جست‌وجوی منبع</button>
+<div class="result" id="result" aria-live="polite"></div>
+<div class="resources"><a class="resource" href="https://kryvora.network/" target="_blank" rel="noopener">وب‌سایت رسمی Kryvora<small>صفحه اصلی پروژه ↗</small></a><a class="resource" href="https://kryvora.network/docs" target="_blank" rel="noopener">مستندات رسمی<small>Docs و راهنمای فنی ↗</small></a><a class="resource" href="https://x.com/KryvoraNetwork" target="_blank" rel="noopener">حساب رسمی در X<small>به‌روزرسانی‌های پروژه ↗</small></a></div>
+<p class="notice">نکته: این نسخهٔ عمومی اولیه به موتور هوش مصنوعی یا جست‌وجوی زندهٔ خودکار متصل نیست. دکمه، جست‌وجوی آماده در منابع وب می‌سازد؛ پاسخ نهایی باید با منبع تطبیق داده شود.</p>
+</section><footer class="foot">Kryvora Answer Desk · ساخته‌شده برای کمک به بررسی سؤال‌ها</footer>
+</main>
+<script>
+const q=document.getElementById('question'),o=document.getElementById('options'),r=document.getElementById('result');
+document.getElementById('search').addEventListener('click',()=>{
+ const question=q.value.trim(), options=o.value.trim(), scope=document.querySelector('input[name="scope"]:checked').value;
+ if(!question){r.className='result show';r.innerHTML='لطفاً اول متن سؤال رو وارد کن.';q.focus();return}
+ const query=question+(options?'\nگزینه‌ها:\n'+options:'');
+ const url=scope==='official'?'https://www.google.com/search?q='+encodeURIComponent('site:kryvora.network '+query):'https://www.google.com/search?q='+encodeURIComponent(query+' Kryvora');
+ r.className='result show';
+ r.innerHTML='<strong>جست‌وجو آماده است.</strong><p>برای این سؤال، جست‌وجوی '+(scope==='official'?'محدود به دامنهٔ رسمی Kryvora':'گسترده در وب')+' باز می‌شود. نتیجه را با متن مستندات تطبیق بده؛ این نسخه هنوز شمارهٔ گزینه را به‌صورت خودکار تأیید نمی‌کند.</p><div class="actions"><a class="linkbtn primary" style="width:auto" href="'+url+'" target="_blank" rel="noopener">باز کردن نتایج جست‌وجو ↗</a><button class="secondary" id="copy">کپی سؤال</button></div>';
+ document.getElementById('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(query);document.getElementById('copy').textContent='کپی شد ✓'}catch(e){document.getElementById('copy').textContent='کپی خودکار ممکن نیست'}});
+});
+</script></body></html>
