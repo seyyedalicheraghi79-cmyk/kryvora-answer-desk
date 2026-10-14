@@ -27,7 +27,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       for (const c of (item.content || [])) {
         if (c.type === "output_text" && c.text) {
           parts.push(c.text);
-          for (const a of (c.annotations || [])) if (a.type === "url_citation" && a.url_citation?.url) citations.push({title:a.url_citation.title || a.url_citation.url,url:a.url_citation.url});
+          for (const a of (c.annotations || [])) if (a.type === "url_citation" && a.url) citations.push({title:a.title || a.url,url:a.url});
         }
       }
     }
