@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Kryvora Answer Desk",
+  "version": "1.0.0",
+  "description": "A quick on-page panel for reading quiz text and researching a sourced answer.",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": ["https://api.openai.com/*", "<all_urls>"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_title": "Kryvora Answer Desk", "default_popup": "popup.html" },
+  "content_scripts": [{ "matches": ["<all_urls>"], "js": ["content.js"], "run_at": "document_idle", "all_frames": true }]
+}
