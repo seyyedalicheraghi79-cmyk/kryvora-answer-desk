@@ -1,22 +1,32 @@
-# Kryvora Answer Desk — Chrome Extension
+# Kryvora Answer Desk — Chrome / Edge Extension
 
-A local Chrome/Edge extension that adds a quick panel to webpages, reads selected or visible text, and asks OpenAI Responses API to search the web and answer with sources.
+این افزونه از Gemini API گوگل استفاده می‌کند و می‌تواند در محدوده سهمیه رایگان قابل‌دسترس باشد. سهمیه رایگان تضمین‌شده یا نامحدود نیست و به مدل، منطقه و محدودیت‌های فعلی گوگل بستگی دارد.
 
-## Install
-1. Download ZIP: https://github.com/seyyedalicheraghi79-cmyk/kryvora-answer-desk/archive/refs/heads/main.zip
-2. Extract the ZIP.
-3. Open chrome://extensions in Chrome (or edge://extensions in Edge).
-4. Turn on Developer mode.
-5. Click Load unpacked and select the extension folder inside the extracted repository.
-6. Open the extension popup and save your OpenAI API key.
-7. Open the quiz page, click “✳ جواب سریع Kryvora”, then “خواندن صفحه” and “پیدا کردن جواب”.
+## راه‌اندازی
 
-Shortcut: Alt+Shift+K opens/closes the panel.
+1. از صفحه رسمی Google AI Studio وارد شو: https://aistudio.google.com/apikey
+2. وارد حساب گوگل شو و گزینه ساخت API key را انتخاب کن. اگر از تو خواسته شد، یک پروژه انتخاب یا بساز.
+3. کلید را کپی کن و آن را با دیگران به اشتراک نگذار.
+4. ZIP مخزن را از اینجا دریافت کن: https://github.com/seyyedalicheraghi79-cmyk/kryvora-answer-desk/archive/refs/heads/main.zip
+5. ZIP را Extract کن.
+6. در Chrome آدرس `chrome://extensions` و در Edge آدرس `edge://extensions` را باز کن.
+7. **Developer mode** را روشن کن.
+8. **Load unpacked** را بزن و پوشه `extension` داخل پوشه استخراج‌شده را انتخاب کن.
+9. روی آیکن افزونه کلیک کن، کلید Gemini را وارد و **ذخیره کلید** را بزن.
+10. صفحه کوییز را باز کن و پنل افزونه را اجرا کن. سؤال و گزینه‌ها را دستی در کادر وارد کن و درخواست پاسخ بده.
 
-## Requirements and limitations
-- Requires an OpenAI API key with API billing enabled. ChatGPT subscriptions do not automatically pay for API usage.
-- Each answer uses web search and incurs API charges under current pricing.
-- The key is stored in Chrome local extension storage and sent to OpenAI's API. Protect your browser profile.
-- The extension can read text on pages where it runs. Install only if you accept this permission.
-- Some cross-origin iframe/canvas quizzes cannot be read automatically; select/copy the question into the panel manually.
-- It displays a suggested answer and sources. It does not click answers or submit quiz forms.
+## مدل و هزینه
+
+- مدل پیش‌فرض: `gemini-2.5-flash`.
+- افزونه مستقیم به Gemini API وصل می‌شود؛ سرور واسط اختصاصی ندارد.
+- استفاده ممکن است در سهمیه رایگان باشد، اما نرخ‌ها و محدودیت‌ها تغییر می‌کنند. جزئیات رسمی: https://ai.google.dev/gemini-api/docs/pricing
+- شرایط و دسترسی به کلید را در Google AI Studio بررسی کن: https://aistudio.google.com/apikey
+- سهمیه رایگان به معنی دسترسی نامحدود نیست. اگر خطای 429 دیدی، سهمیه یا نرخ درخواست را بررسی کن و بعداً دوباره امتحان کن.
+
+## حریم خصوصی و امنیت
+
+- کلید در حافظه محلی افزونه در مرورگر ذخیره می‌شود و برای درخواست‌ها به Google ارسال می‌شود. هر کسی که به پروفایل مرورگرت دسترسی داشته باشد ممکن است بتواند به افزونه دسترسی پیدا کند.
+- کلید API را در مخزن عمومی، اسکرین‌شات یا پیام عمومی قرار نده.
+- متن سؤالی که ارسال می‌کنی برای دریافت پاسخ به Gemini فرستاده می‌شود؛ اطلاعات حساس را وارد نکن.
+- افزونه پاسخ پیشنهادی را نشان می‌دهد؛ گزینه‌ها را خودش کلیک یا آزمون را ارسال نمی‌کند.
+- اگر نسخه قدیمی افزونه نصب است، در صفحه Extensions روی Reload بزن یا نسخه قبلی را حذف و پوشه جدید را Load unpacked کن.
