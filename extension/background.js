@@ -1,4 +1,4 @@
-const API_BASE = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
+const API_BASE = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent";
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message?.type !== "KRYVORA_ANSWER") return;
   (async () => {
